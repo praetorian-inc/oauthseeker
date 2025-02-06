@@ -184,7 +184,7 @@ The admin panel can be accessed only from specific addresses. By default, the fo
 
 - 127.0.0.1 (localhost)
 - ::1 (IPv6 localhost)
-- Configured IP allowlist (see configuration)
+- Configured IP allowlist
 
 The admin credentials are generated during installation or can be configured manually in the environment file. This behavior can be modified by tweaking the ADMIN_ALLOWLIST_IPS setting within oauthseeker.env.
 
