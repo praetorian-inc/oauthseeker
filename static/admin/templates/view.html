@@ -1,0 +1,75 @@
+{{define "view"}}
+    {{template "base" .}}
+{{end}}
+
+{{define "content"}}
+    <style>
+        .wrap-text {
+            word-break: break-all; /* Break long words if necessary */
+            white-space: normal;   /* Allow wrapping */
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .action-button {
+            background-color: #555;
+            color: #c0c0c0;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: "Courier New", Courier, monospace;
+            margin: 0 10px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        .action-button:hover {
+            background-color: #777;
+        }
+    </style>
+<div class="credential-details">
+    <table class="table">
+        <tr>
+            <th>Email</th>
+            <td>{{.Email}}</td>
+        </tr>
+        <tr>
+            <th>Access Token</th>
+            <td class="wrap-text">{{.AccessToken}}</td>
+        </tr>
+        <tr>
+            <th>Refresh Token</th>
+            <td class="wrap-text">{{.RefreshToken}}</td>
+        </tr>
+        <tr>
+            <th>Expiry</th>
+            <td>{{.Expiry}}</td>
+        </tr>
+        <tr>
+            <th>User IP</th>
+            <td>{{.UserIP}}</td>
+        </tr>
+        <tr>
+            <th>User Agent</th>
+            <td>{{.UserAgent}}</td>
+        </tr>
+        <tr>
+            <th>Capture Date</th>
+            <td>{{.CaptureDate}}</td>
+        </tr>
+        <tr>
+            <th>Last Refreshed</th>
+            <td>{{.LastRefreshed}}</td>
+        </tr>
+    </table>
+</div>
+
+    <div class="button-container">
+        <form method="POST" action="/admin/view/{{.Email}}">
+            <button type="submit" class="action-button">Refresh</button>
+        </form>
+    </div>
+{{end}}

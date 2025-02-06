@@ -1,0 +1,20 @@
+[Unit]
+Description=OAuthSeeker Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/oauthseeker listen
+EnvironmentFile=/etc/oauthseeker/oauthseeker.env
+Restart=always
+RestartSec=5
+User=root
+WorkingDirectory=/usr/local/bin
+
+# Logging
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=oauthseeker
+
+[Install]
+WantedBy=multi-user.target

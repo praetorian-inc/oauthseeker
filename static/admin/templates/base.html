@@ -1,0 +1,29 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/admin/static/styles.css">
+    <link rel="icon" href="/admin/static/favicon.ico" type="image/x-icon">
+    <title>{{.Title}}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="/admin/static/logo.png" alt="OAuthSeeker Logo" />
+            <h1>{{.Header}}</h1>
+        </div>
+        
+        <div class="navbar">
+            <a href="/admin/" class="nav-link">Dashboard</a>
+            <a href="/admin/graphrunner" class="nav-link">GraphRunner</a>
+        </div>
+        
+        <div class="content">
+            {{block "content" .}}Default Content{{end}}
+        </div>
+    </div>
+</body>
+</html>
+{{end}}
