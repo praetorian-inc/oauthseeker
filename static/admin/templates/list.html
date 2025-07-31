@@ -1,0 +1,39 @@
+{{define "list"}}
+    {{template "base" .}}
+{{end}}
+
+{{define "content"}}
+    {{if .Tokens}}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th class="hide-sm">User IP</th>
+                <th class="hide-xl">User Agent</th>
+                <th class="hide-md">Capture Date</th>
+                <th class="hide-md">Last Refreshed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .Tokens}}
+            <tr class="token-row">
+                <td>{{.Email}}</td>
+                <td class="hide-sm">{{.UserIP}}</td>
+                <td class="hide-xl">{{.UserAgent}}</td>
+                <td class="hide-md">{{.CaptureDate}}</td>
+                <td class="hide-md">{{.LastRefreshed}}</td>
+                <td>
+                    <a href="/admin/view/{{.Email}}" class="view-button">View</a>
+                </td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+    {{else}}
+        <div class="empty-state">
+            <h2 style="text-align:center">No Tokens Available</h2>
+            <p style="text-align:center">There are currently no captured tokens in the system.</p>
+        </div>
+    {{end}}
+{{end}}
